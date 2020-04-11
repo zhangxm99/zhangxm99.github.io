@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Macaulay债券定价原理 | Blog | Zhangximing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Macaulay提出的原理至今在分析债券波动时仍然十分重要，它在起伏的债券价格海洋上宛如划定的航道，指引着投资者的决策。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Macaulay债券定价原理">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/Macaulay%E5%80%BA%E5%88%B8%E5%AE%9A%E4%BB%B7%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Blog | Zhangximing">
+<meta property="og:description" content="Macaulay提出的原理至今在分析债券波动时仍然十分重要，它在起伏的债券价格海洋上宛如划定的航道，指引着投资者的决策。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="http://yoursite.com/photos/bond.jpg">
+<meta property="article:published_time" content="2020-04-10T11:05:20.000Z">
+<meta property="article:modified_time" content="2020-04-11T10:09:55.191Z">
+<meta property="article:author" content="Zhangximing">
+<meta property="article:tag" content="债券">
+<meta property="article:tag" content="日常学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/photos/bond.jpg">
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
+  
+<link rel="stylesheet" href="/css/index.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Zhangxm</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/zhangxm99" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/tags/" class="nav-menu ">STUFFS</a>
+          
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">Macaulay债券定价原理</h2>
+  <p class="sub">Apr 10, 2020</p>
+  <article class="content">
+    <p>1962年，Macaulay在对债券价格、债券利息率、到期年限以及到期收益率之间关系进行研究后提出了债券定价的五大定理，至此，它们构成了债券定价原理的经典理论。</p>
+<p>假设市场上存在一种普通债券，当前价格为P，当前市场利率为y，期限T年，每年付息C，最后一年归还面值F。由于货币存在时间价值，因此有式一：</p>
+<div align=center> <img src="/photos/image-20200410194510834.png"> </div>
+
+
+
+
+
+<p>用等比级数求和公式整合有式二：</p>
+<div align=center> <img src="/photos/image-20200410202435225.png"> </div>
+
+
+
+<h3 id="定理一：债券价格和债券收益率反向变动"><a href="#定理一：债券价格和债券收益率反向变动" class="headerlink" title="定理一：债券价格和债券收益率反向变动"></a>定理一：债券价格和债券收益率反向变动</h3><p>证明：</p>
+<p>对式一求导得：</p>
+<div align=center> <img src="/photos/image-20200410203622569.png"> </div>
+
+<p>所以债券收益率升高时，价格降低，债券收益率降低时，价格升高。</p>
+<h3 id="定理二：当市场预期收益率变动时，债券的到期时间与债券价格的波动幅度成正比关系"><a href="#定理二：当市场预期收益率变动时，债券的到期时间与债券价格的波动幅度成正比关系" class="headerlink" title="定理二：当市场预期收益率变动时，债券的到期时间与债券价格的波动幅度成正比关系"></a>定理二：当市场预期收益率变动时，债券的到期时间与债券价格的波动幅度成正比关系</h3><p>证明：</p>
+<p>对式二求导得：</p>
+<div align=center> <img src="/photos/image-20200410205653277.png"> </div>
+
+<p>债券价格的波动为：</p>
+<div align=center> <img src="/photos/image-20200410212613013.png"> </div>
+
+<p>对分子求导有：</p>
+<div align=center> <img src="/photos/image-20200411113915856.png"> </div>
+
+<p>T取零时分子项小于零，而分子项导数对T递减，因此分子项递减，而分母项递增，因此债券价格波动递减，而又因为债券价格波动为负，且T取零时，波动为零，所以其绝对值递增。这意味着T越大，债券波动越大。</p>
+<h3 id="定理三：随着债券到期时间的临近，债券价格的波动幅度减少，并且是以递增的速度减少；反之，到期时间越长，债券价格波动幅度增加，并且是以递减的速度增加"><a href="#定理三：随着债券到期时间的临近，债券价格的波动幅度减少，并且是以递增的速度减少；反之，到期时间越长，债券价格波动幅度增加，并且是以递减的速度增加" class="headerlink" title="定理三：随着债券到期时间的临近，债券价格的波动幅度减少，并且是以递增的速度减少；反之，到期时间越长，债券价格波动幅度增加，并且是以递减的速度增加"></a>定理三：随着债券到期时间的临近，债券价格的波动幅度减少，并且是以递增的速度减少；反之，到期时间越长，债券价格波动幅度增加，并且是以递减的速度增加</h3><p>证明：</p>
+<p>只需证明波动是凸向原点的即可，因为波动幅度递减，且有极限，所以其有下界，可以知道存在τ，使得T &gt; τ时，凸向原点，所以债券波动幅度增加随着到期时间变长而波动增加的越发缓慢。</p>
+<h3 id="定理四：对于期限既定的债券，由收益率下降导致的债券价格上升的幅度大于同等幅度的收益率上升导致的债券价格下降的幅度"><a href="#定理四：对于期限既定的债券，由收益率下降导致的债券价格上升的幅度大于同等幅度的收益率上升导致的债券价格下降的幅度" class="headerlink" title="定理四：对于期限既定的债券，由收益率下降导致的债券价格上升的幅度大于同等幅度的收益率上升导致的债券价格下降的幅度"></a>定理四：对于期限既定的债券，由收益率下降导致的债券价格上升的幅度大于同等幅度的收益率上升导致的债券价格下降的幅度</h3><p>证明：</p>
+<p>对式一求二阶导得：</p>
+<div align=center> <img src="/photos/image-20200411100023962.png"> </div>
+
+<p>因为一阶导小于零，二阶导大于零，函数突向原点，因此收益率上升所带来的损失要小于收益率下降所带来的收益。</p>
+<h3 id="定理五：对于给定的收益率变动幅度，债券的息票率与债券价格的波动幅度成反比关系-不包括一年期债券和无穷期债券"><a href="#定理五：对于给定的收益率变动幅度，债券的息票率与债券价格的波动幅度成反比关系-不包括一年期债券和无穷期债券" class="headerlink" title="定理五：对于给定的收益率变动幅度，债券的息票率与债券价格的波动幅度成反比关系(不包括一年期债券和无穷期债券)"></a>定理五：对于给定的收益率变动幅度，债券的息票率与债券价格的波动幅度成反比关系(不包括一年期债券和无穷期债券)</h3><p>证明：</p>
+<p>债券波动对C求导:</p>
+<div align=center> <img src="/photos/image-20200411150236022.png"> </div>
+
+<p>记括号内式子为S(T)，T=1时，即对一年期债券来说，上式为0，而T趋于无穷时，上式取极限值为0，即对无穷期债券来说，也为0。仅当T&gt;1时有：</p>
+<div align=center> <img src="/photos/image-20200411155741775.png"> </div>
+
+<p>因为债券波动为负，因此当T&gt;1时，波动随着息票率的增大而减小，对一年期和无穷期债券不适合。</p>
+
+  </article>
+  <footer class="f-cf">
+    
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  zhangxm.fin@gmail.com
+  
+    
+      
+        · <a href="https://github.com/zhangxm99" target="_blank" class="nav-icn">GitHub</a>
+      
+    
+  
+  <span class="copyright">All rights reserved @Zhangximing</span>
+</footer>
+  </div>
+</body>
+</html>
