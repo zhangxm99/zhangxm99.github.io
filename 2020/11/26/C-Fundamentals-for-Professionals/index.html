@@ -14,7 +14,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://zhangxm99.github.io/photos/C_C_featuredimage.png">
 <meta property="article:published_time" content="2020-11-26T14:46:32.000Z">
-<meta property="article:modified_time" content="2020-11-26T15:43:22.798Z">
+<meta property="article:modified_time" content="2020-11-30T15:38:06.231Z">
 <meta property="article:author" content="Zhangximing">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="C++">
@@ -82,6 +82,13 @@
     <p>感谢GitHub提供的Student Developer Pack，其中包含了educative中的几门课程，我本身是C/C++入门，虽然也写过一两年Python，但还是更想精进一下C++，权当是挑战一下年轻的自己吧。该笔记基于<em>C++ Fundamentals for Professionals</em>（<a href="https://www.educative.io/courses/cpp-fundamentals-for-professionals" target="_blank" rel="noopener">https://www.educative.io/courses/cpp-fundamentals-for-professionals</a> ）。</p>
 <h2 id="1-Literal"><a href="#1-Literal" class="headerlink" title="1. Literal"></a>1. Literal</h2><p>Literal(字面量) 是程序中明确的常值，每个字面量对应着一个数据类型，比如int、double甚至lambda表达式，这些都是built-in的。其中string型的字面量有个小trick，可以直接用R”(your string)”这种方法把字符串以raw string的形式放出来，避免编译器把部分符号解释为转义符号。</p>
 <p>built-in的毕竟有限，有时我们自己需要定义自己的，即User-defined literal，我们要告诉编译器怎么把它构造成我们想要的样子。这里对自己定义的字面量的格式有要求，即按&lt;built_in-Literal&gt; + _ +&lt;Suffix&gt;这样写（注意必须要有下划线），比如150_km，相应的我们也要规划出一片命名空间，规定怎么处理自己的literal。这种函数一般这么写， &lt;type&gt;  operator” _youwrote(depends your built-in literal){do something; return type;} ，前面的type写最终构造的数据类型，如int或是你自己的类，形参表根据前面的字面量而定，整型只接受unsigned long long或const char * （以防过长），浮点型只接受long double或const char * （以防过长），字符串接受两个，分别是const char *和size_t，字符型只接受char。</p>
+<h2 id="2-Type"><a href="#2-Type" class="headerlink" title="2. Type"></a>2. Type</h2><p>1、Enumeration</p>
+<p>传统的enum型是有缺陷的，首先枚举元会被隐式转换为int型，其次枚举元会在当前所处的整个函数块作用域中起作用，最后，枚举的类型不能具体说明。所以C++11改进了enum，引进了scoped enumeration，声明形式是enum struct(or class) &lt;Your enum name&gt; { …. }; 它有自己的封闭作用域，也不会隐式转换为int，默认的枚举元类型是int，可以直接用static_cast&lt;int&gt;的方式进行运算（直接加减乘除不行，毕竟它还是enum型，没有重载运算符），也可以自己显式表明类型，以char型为例，即enum struct(or class) &lt;Your enum name&gt;: char { …. }; 。注意，由于它是封闭的作用域，所以我们访问的时候要通过&lt;your enum name&gt; :: &lt;your enumerator&gt;的形式。</p>
+<p>2、Pointer</p>
+<p>介绍一种新类型，nullptr，能更好的代替NULL（宏定义是(void *)0）。函数指针在C中就已经很熟悉了，这里不再多说。除此之外，多了一种指向成员的指针，下面举个例子：</p>
+<p><code>class X{int date;}; int X:: *p = &amp;X::date; X test; test.date = 100; test.*p == test.date;</code></p>
+<p>3、Reference</p>
+<p>在函数传参的过程中，引用可以避免大内存的复制，有效加速，并控制内存占用。引用需要注意一点：不同于指针，引用必须要依托存在的变量，并且不能再改变引用到别的变量上。</p>
 
   </article>
   <footer class="f-cf">
