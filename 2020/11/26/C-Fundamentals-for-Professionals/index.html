@@ -14,7 +14,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://zhangxm99.github.io/photos/C_C_featuredimage.png">
 <meta property="article:published_time" content="2020-11-26T14:46:32.000Z">
-<meta property="article:modified_time" content="2020-11-30T15:38:06.231Z">
+<meta property="article:modified_time" content="2020-12-03T12:28:42.061Z">
 <meta property="article:author" content="Zhangximing">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="C++">
@@ -86,12 +86,18 @@
 <p>传统的enum型是有缺陷的，首先枚举元会被隐式转换为int型，其次枚举元会在当前所处的整个函数块作用域中起作用，最后，枚举的类型不能具体说明。所以C++11改进了enum，引进了scoped enumeration，声明形式是enum struct(or class) &lt;Your enum name&gt; { …. }; 它有自己的封闭作用域，也不会隐式转换为int，默认的枚举元类型是int，可以直接用static_cast&lt;int&gt;的方式进行运算（直接加减乘除不行，毕竟它还是enum型，没有重载运算符），也可以自己显式表明类型，以char型为例，即enum struct(or class) &lt;Your enum name&gt;: char { …. }; 。注意，由于它是封闭的作用域，所以我们访问的时候要通过&lt;your enum name&gt; :: &lt;your enumerator&gt;的形式。</p>
 <p>2、Pointer</p>
 <p>介绍一种新类型，nullptr，能更好的代替NULL（宏定义是(void *)0）。函数指针在C中就已经很熟悉了，这里不再多说。除此之外，多了一种指向成员的指针，下面举个例子：</p>
-<p><code>class X{int date;}; int X:: *p = &amp;X::date; X test; test.date = 100; test.*p == test.date;</code></p>
+<p><code>class X{int date;}; int X:: *p = &amp;X::date; X test; test.date = 100; test.*p == test.date;</code> </p>
 <p>3、Reference</p>
 <p>在函数传参的过程中，引用可以避免大内存的复制，有效加速，并控制内存占用。引用需要注意一点：不同于指针，引用必须要依托存在的变量，并且不能再改变引用到别的变量上。</p>
+<h2 id="3-Automatic-Type-Deduction"><a href="#3-Automatic-Type-Deduction" class="headerlink" title="3. Automatic Type Deduction"></a>3. Automatic Type Deduction</h2><p>1、auto</p>
+<p>auto关键字能让编译器根据后面值的类型决定变量类型。它主要有两个应用目的：1、用来接受模板返回值。2、用来重构代码。第一点容易理解，第二点的意思是，如果你显式的定义变量类型，一段时间后想改变它，这时你要把与之相关联的显式数据类型都给改了，但用auto就不会有这个问题。更改后，编译器会自动定义其该有的数据类型。</p>
+<p>注意，并不是所有的地方都可以用auto，class（或struct）内的非const成员就不能用auto初始化。还要注意使用auto时可能会去掉一部分修饰符(qualifier) ，例如int a = 0; const int * const p = &a; auto test = p; 这里第一个const指被指变量不能通过指针改变，第二个const意思是指针不能再指向别的地址，但一旦用了auto，第二个const就被丢弃了，编译器将其变为const int * test = p; 在C++14中，如果想要保留所有修饰符，就要用decltype(auto) 来表明了。总而言之，用auto接受指针且用修饰符时，有以下用法：1、const auto fp1 = GetFoo(); //foo * const  fp1 = GetFoo();  2、const auto * fp2 = GetFoo(); // const foo * fp2 = GetFoo(); 3、const auto * const fp3 = GetFoo(); // const foo * const fp3 = GetFoo(); </p>
+<p>p.s. 全局变量用::变量名（如::n = 9;）使用，它是能够默认初始化的。</p>
 
   </article>
   <footer class="f-cf">
+    
+      <a href="/2022/07/27/tor/" class="link f-fl">⟵tor上的wiki</a>
     
     
       <a href="/2020/07/29/%E5%9B%BD%E9%99%85%E8%B4%B8%E6%98%93%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="link f-fr">国际贸易若干问题分析⟶</a>
